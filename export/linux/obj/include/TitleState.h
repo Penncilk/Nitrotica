@@ -53,6 +53,10 @@ class HXCPP_CLASS_ATTRIBUTES TitleState_obj : public  ::flixel::FlxState_obj
 		::String __ToString() const { return HX_("TitleState",79,8d,a1,8c); }
 
 		 ::flixel::text::FlxText text;
+		 ::flixel::FlxSprite bg;
+		void shine();
+		::Dynamic shine_dyn();
+
 		void create();
 
 		void update(Float elapsed);

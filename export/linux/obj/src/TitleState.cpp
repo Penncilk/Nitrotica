@@ -7,6 +7,9 @@
 #ifndef INCLUDED_flixel_FlxBasic
 #include <flixel/FlxBasic.h>
 #endif
+#ifndef INCLUDED_flixel_FlxG
+#include <flixel/FlxG.h>
+#endif
 #ifndef INCLUDED_flixel_FlxObject
 #include <flixel/FlxObject.h>
 #endif
@@ -19,21 +22,35 @@
 #ifndef INCLUDED_flixel_group_FlxTypedGroup
 #include <flixel/group/FlxTypedGroup.h>
 #endif
+#ifndef INCLUDED_flixel_system_FlxSoundGroup
+#include <flixel/system/FlxSoundGroup.h>
+#endif
+#ifndef INCLUDED_flixel_system_frontEnds_SoundFrontEnd
+#include <flixel/system/frontEnds/SoundFrontEnd.h>
+#endif
 #ifndef INCLUDED_flixel_text_FlxText
 #include <flixel/text/FlxText.h>
+#endif
+#ifndef INCLUDED_flixel_tweens_FlxTween
+#include <flixel/tweens/FlxTween.h>
+#endif
+#ifndef INCLUDED_flixel_tweens_misc_VarTween
+#include <flixel/tweens/misc/VarTween.h>
 #endif
 #ifndef INCLUDED_flixel_util_IFlxDestroyable
 #include <flixel/util/IFlxDestroyable.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_a55214e0452daa02_6_new,"TitleState","new",0x3b23deeb,"TitleState.new","TitleState.hx",6,0xd132a6e5)
-HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_11_create,"TitleState","create",0x801cc151,"TitleState.create","TitleState.hx",11,0xd132a6e5)
-HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_17_update,"TitleState","update",0x8b12e05e,"TitleState.update","TitleState.hx",17,0xd132a6e5)
+HX_DEFINE_STACK_FRAME(_hx_pos_a55214e0452daa02_9_new,"TitleState","new",0x3b23deeb,"TitleState.new","TitleState.hx",9,0xd132a6e5)
+HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_14_shine,"TitleState","shine",0x15fbfab6,"TitleState.shine","TitleState.hx",14,0xd132a6e5)
+HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_17_create,"TitleState","create",0x801cc151,"TitleState.create","TitleState.hx",17,0xd132a6e5)
+HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_30_update,"TitleState","update",0x8b12e05e,"TitleState.update","TitleState.hx",30,0xd132a6e5)
 
 void TitleState_obj::__construct( ::Dynamic MaxSize){
-            	HX_GC_STACKFRAME(&_hx_pos_a55214e0452daa02_6_new)
-HXLINE(   8)		this->text =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,10,10,100,HX_("Hello, World!",15,c0,23,88),null(),null());
-HXLINE(   6)		super::__construct(MaxSize);
+            	HX_GC_STACKFRAME(&_hx_pos_a55214e0452daa02_9_new)
+HXLINE(  12)		this->bg =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
+HXLINE(  11)		this->text =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,1200,10,1000,HX_("Nitrotica",09,e6,1e,5e),100,null());
+HXLINE(   9)		super::__construct(MaxSize);
             	}
 
 Dynamic TitleState_obj::__CreateEmpty() { return new TitleState_obj; }
@@ -59,20 +76,31 @@ bool TitleState_obj::_hx_isInstanceOf(int inClassId) {
 	}
 }
 
+void TitleState_obj::shine(){
+            	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_14_shine)
+HXDLIN(  14)		this->bg->loadGraphic(HX_("assets/images/titleBG.png",4d,d7,0f,76),null(),null(),null(),null(),null());
+            	}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(TitleState_obj,shine,(void))
+
 void TitleState_obj::create(){
-            	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_11_create)
-HXLINE(  12)		this->add(this->text);
-HXLINE(  13)		this->super::create();
+            	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_17_create)
+HXLINE(  18)		::flixel::FlxG_obj::sound->playMusic(HX_("assets/music/menu.ogg",36,37,34,fd),1,true,null());
+HXLINE(  19)		this->add(this->bg);
+HXLINE(  20)		this->add(this->text);
+HXLINE(  21)		this->bg->loadGraphic(HX_("assets/images/blackScreen.png",fb,bd,53,c9),null(),null(),null(),null(),null());
+HXLINE(  22)		::flixel::tweens::FlxTween_obj::tween(this->text, ::Dynamic(::hx::Anon_obj::Create(2)
+            			->setFixed(0,HX_("x",78,00,00,00),10)
+            			->setFixed(1,HX_("y",79,00,00,00),10)),((Float)0.5),null());
+HXLINE(  23)		this->shine();
+HXLINE(  25)		this->super::create();
             	}
 
 
 void TitleState_obj::update(Float elapsed){
-            	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_17_update)
-HXLINE(  18)		this->super::update(elapsed);
-HXLINE(  19)		{
-HXLINE(  19)			 ::flixel::text::FlxText _g = this->text;
-HXDLIN(  19)			_g->set_y((_g->y + 1));
-            		}
+            	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_30_update)
+HXDLIN(  30)		this->super::update(elapsed);
             	}
 
 
@@ -98,6 +126,7 @@ void TitleState_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(TitleState);
 	HX_MARK_MEMBER_NAME(text,"text");
+	HX_MARK_MEMBER_NAME(bg,"bg");
 	 ::flixel::FlxState_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
@@ -105,14 +134,21 @@ void TitleState_obj::__Mark(HX_MARK_PARAMS)
 void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 {
 	HX_VISIT_MEMBER_NAME(text,"text");
+	HX_VISIT_MEMBER_NAME(bg,"bg");
 	 ::flixel::FlxState_obj::__Visit(HX_VISIT_ARG);
 }
 
 ::hx::Val TitleState_obj::__Field(const ::String &inName,::hx::PropertyAccess inCallProp)
 {
 	switch(inName.length) {
+	case 2:
+		if (HX_FIELD_EQ(inName,"bg") ) { return ::hx::Val( bg ); }
+		break;
 	case 4:
 		if (HX_FIELD_EQ(inName,"text") ) { return ::hx::Val( text ); }
+		break;
+	case 5:
+		if (HX_FIELD_EQ(inName,"shine") ) { return ::hx::Val( shine_dyn() ); }
 		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"create") ) { return ::hx::Val( create_dyn() ); }
@@ -124,6 +160,9 @@ void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 ::hx::Val TitleState_obj::__SetField(const ::String &inName,const ::hx::Val &inValue,::hx::PropertyAccess inCallProp)
 {
 	switch(inName.length) {
+	case 2:
+		if (HX_FIELD_EQ(inName,"bg") ) { bg=inValue.Cast<  ::flixel::FlxSprite >(); return inValue; }
+		break;
 	case 4:
 		if (HX_FIELD_EQ(inName,"text") ) { text=inValue.Cast<  ::flixel::text::FlxText >(); return inValue; }
 	}
@@ -133,12 +172,14 @@ void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 void TitleState_obj::__GetFields(Array< ::String> &outFields)
 {
 	outFields->push(HX_("text",ad,cc,f9,4c));
+	outFields->push(HX_("bg",c5,55,00,00));
 	super::__GetFields(outFields);
 };
 
 #ifdef HXCPP_SCRIPTABLE
 static ::hx::StorageInfo TitleState_obj_sMemberStorageInfo[] = {
 	{::hx::fsObject /*  ::flixel::text::FlxText */ ,(int)offsetof(TitleState_obj,text),HX_("text",ad,cc,f9,4c)},
+	{::hx::fsObject /*  ::flixel::FlxSprite */ ,(int)offsetof(TitleState_obj,bg),HX_("bg",c5,55,00,00)},
 	{ ::hx::fsUnknown, 0, null()}
 };
 static ::hx::StaticInfo *TitleState_obj_sStaticStorageInfo = 0;
@@ -146,6 +187,8 @@ static ::hx::StaticInfo *TitleState_obj_sStaticStorageInfo = 0;
 
 static ::String TitleState_obj_sMemberFields[] = {
 	HX_("text",ad,cc,f9,4c),
+	HX_("bg",c5,55,00,00),
+	HX_("shine",6b,f3,22,7c),
 	HX_("create",fc,66,0f,7c),
 	HX_("update",09,86,05,87),
 	::String(null()) };

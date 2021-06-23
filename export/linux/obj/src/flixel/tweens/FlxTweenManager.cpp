@@ -90,8 +90,8 @@ HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_motion_Line
 HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_misc_ColorTween,"flixel.tweens.FlxTweenManager","add_flixel_tweens_misc_ColorTween",0xd92edebb,"flixel.tweens.FlxTweenManager.add_flixel_tweens_misc_ColorTween","flixel/tweens/FlxTween.hx",1127,0x5d58d691)
 HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_misc_AngleTween,"flixel.tweens.FlxTweenManager","add_flixel_tweens_misc_AngleTween",0xb848364b,"flixel.tweens.FlxTweenManager.add_flixel_tweens_misc_AngleTween","flixel/tweens/FlxTween.hx",1127,0x5d58d691)
 HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_misc_NumTween,"flixel.tweens.FlxTweenManager","add_flixel_tweens_misc_NumTween",0xa10a3838,"flixel.tweens.FlxTweenManager.add_flixel_tweens_misc_NumTween","flixel/tweens/FlxTween.hx",1127,0x5d58d691)
-HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_misc_VarTween,"flixel.tweens.FlxTweenManager","add_flixel_tweens_misc_VarTween",0x2ab94ff7,"flixel.tweens.FlxTweenManager.add_flixel_tweens_misc_VarTween","flixel/tweens/FlxTween.hx",1127,0x5d58d691)
 HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_FlxTween,"flixel.tweens.FlxTweenManager","add_flixel_tweens_FlxTween",0xdb4849d9,"flixel.tweens.FlxTweenManager.add_flixel_tweens_FlxTween","flixel/tweens/FlxTween.hx",1127,0x5d58d691)
+HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_misc_VarTween,"flixel.tweens.FlxTweenManager","add_flixel_tweens_misc_VarTween",0x2ab94ff7,"flixel.tweens.FlxTweenManager.add_flixel_tweens_misc_VarTween","flixel/tweens/FlxTween.hx",1127,0x5d58d691)
 HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_826_tween,"flixel.tweens.FlxTweenManager","tween",0x3e92553d,"flixel.tweens.FlxTweenManager.tween","flixel/tweens/FlxTween.hx",826,0x5d58d691)
 HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_854_num,"flixel.tweens.FlxTweenManager","num",0x3916d098,"flixel.tweens.FlxTweenManager.num","flixel/tweens/FlxTween.hx",854,0x5d58d691)
 HX_LOCAL_STACK_FRAME(_hx_pos_5ae747326964aa7c_876_angle,"flixel.tweens.FlxTweenManager","angle",0x4803eea5,"flixel.tweens.FlxTweenManager.angle","flixel/tweens/FlxTween.hx",876,0x5d58d691)
@@ -286,22 +286,6 @@ HXLINE(1136)		return Tween;
 
 HX_DEFINE_DYNAMIC_FUNC2(FlxTweenManager_obj,add_flixel_tweens_misc_NumTween,return )
 
- ::flixel::tweens::misc::VarTween FlxTweenManager_obj::add_flixel_tweens_misc_VarTween( ::flixel::tweens::misc::VarTween Tween,::hx::Null< bool >  __o_Start){
-            		bool Start = __o_Start.Default(false);
-            	HX_STACKFRAME(&_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_misc_VarTween)
-HXLINE(1129)		if (::hx::IsNull( Tween )) {
-HXLINE(1130)			return null();
-            		}
-HXLINE(1132)		this->_tweens->push(Tween);
-HXLINE(1134)		if (Start) {
-HXLINE(1135)			Tween->start();
-            		}
-HXLINE(1136)		return Tween;
-            	}
-
-
-HX_DEFINE_DYNAMIC_FUNC2(FlxTweenManager_obj,add_flixel_tweens_misc_VarTween,return )
-
  ::flixel::tweens::FlxTween FlxTweenManager_obj::add_flixel_tweens_FlxTween( ::flixel::tweens::FlxTween Tween,::hx::Null< bool >  __o_Start){
             		bool Start = __o_Start.Default(false);
             	HX_STACKFRAME(&_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_FlxTween)
@@ -317,6 +301,22 @@ HXLINE(1136)		return Tween;
 
 
 HX_DEFINE_DYNAMIC_FUNC2(FlxTweenManager_obj,add_flixel_tweens_FlxTween,return )
+
+ ::flixel::tweens::misc::VarTween FlxTweenManager_obj::add_flixel_tweens_misc_VarTween( ::flixel::tweens::misc::VarTween Tween,::hx::Null< bool >  __o_Start){
+            		bool Start = __o_Start.Default(false);
+            	HX_STACKFRAME(&_hx_pos_5ae747326964aa7c_1127_add_flixel_tweens_misc_VarTween)
+HXLINE(1129)		if (::hx::IsNull( Tween )) {
+HXLINE(1130)			return null();
+            		}
+HXLINE(1132)		this->_tweens->push(Tween);
+HXLINE(1134)		if (Start) {
+HXLINE(1135)			Tween->start();
+            		}
+HXLINE(1136)		return Tween;
+            	}
+
+
+HX_DEFINE_DYNAMIC_FUNC2(FlxTweenManager_obj,add_flixel_tweens_misc_VarTween,return )
 
  ::flixel::tweens::misc::VarTween FlxTweenManager_obj::tween( ::Dynamic Object, ::Dynamic Values,::hx::Null< Float >  __o_Duration, ::Dynamic Options){
             		Float Duration = __o_Duration.Default(1);
@@ -845,8 +845,8 @@ static ::String FlxTweenManager_obj_sMemberFields[] = {
 	HX_("add_flixel_tweens_misc_ColorTween",e9,fc,82,19),
 	HX_("add_flixel_tweens_misc_AngleTween",79,54,9c,f8),
 	HX_("add_flixel_tweens_misc_NumTween",e6,ce,88,53),
-	HX_("add_flixel_tweens_misc_VarTween",a5,e6,37,dd),
 	HX_("add_flixel_tweens_FlxTween",eb,31,6d,84),
+	HX_("add_flixel_tweens_misc_VarTween",a5,e6,37,dd),
 	HX_("_tweens",47,85,9b,97),
 	HX_("tween",6b,aa,70,19),
 	HX_("num",46,de,53,00),
