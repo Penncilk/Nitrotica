@@ -26,6 +26,6 @@
 -D web
 --remap flash:openfl
 --macro flixel.system.macros.FlxDefines.run()
--js export/html5/bin/FlxProject.js
+-js export/html5/bin/Nitrotica.js
 -cp export/html5/haxe
 -D html5

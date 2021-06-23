@@ -143,7 +143,7 @@ HXDLIN( 256)		 ::Dynamic init = ::hx::ClassOf< ::lime::app::Application >();
 
 void ApplicationMain_obj::main(){
             	HX_STACKFRAME(&_hx_pos_6fcf922b66429816_17_main)
-HXLINE(  18)		::lime::_hx_system::System_obj::_hx___registerEntryPoint(HX_("FlxProject",a7,cc,16,25),::ApplicationMain_obj::create_dyn());
+HXLINE(  18)		::lime::_hx_system::System_obj::_hx___registerEntryPoint(HX_("Nitrotica",09,e6,1e,5e),::ApplicationMain_obj::create_dyn());
 HXLINE(  25)		::ApplicationMain_obj::create(null());
             	}
 
@@ -175,10 +175,10 @@ HXLINE( 116)			::ApplicationMain_obj::start(stage);
             	HX_GC_STACKFRAME(&_hx_pos_6fcf922b66429816_30_create)
 HXLINE(  31)		 ::openfl::display::Application app =  ::openfl::display::Application_obj::__alloc( HX_CTX );
 HXLINE(  33)		::ManifestResources_obj::init(config);
-HXLINE(  35)		app->meta->set(HX_("build",2e,db,ea,ba),HX_("5",35,00,00,00));
+HXLINE(  35)		app->meta->set(HX_("build",2e,db,ea,ba),HX_("7",37,00,00,00));
 HXLINE(  36)		app->meta->set(HX_("company",3d,15,69,83),HX_("HaxeFlixel",42,8f,0c,ac));
-HXLINE(  37)		app->meta->set(HX_("file",7c,ce,bb,43),HX_("FlxProject",a7,cc,16,25));
-HXLINE(  38)		app->meta->set(HX_("name",4b,72,ff,48),HX_("FlxProject",a7,cc,16,25));
+HXLINE(  37)		app->meta->set(HX_("file",7c,ce,bb,43),HX_("Nitrotica",09,e6,1e,5e));
+HXLINE(  38)		app->meta->set(HX_("name",4b,72,ff,48),HX_("Nitrotica",09,e6,1e,5e));
 HXLINE(  39)		app->meta->set(HX_("packageName",f1,04,ad,04),HX_("com.example.myapp",84,30,57,c1));
 HXLINE(  40)		app->meta->set(HX_("version",18,e7,f1,7c),HX_("0.0.1",35,3d,c8,c1));
 HXLINE(  46)		 ::Dynamic attributes =  ::Dynamic(::hx::Anon_obj::Create(16)
@@ -191,7 +191,7 @@ HXLINE(  46)		 ::Dynamic attributes =  ::Dynamic(::hx::Anon_obj::Create(16)
             			->setFixed(6,HX_("y",79,00,00,00),null())
             			->setFixed(7,HX_("height",e7,07,4c,02),720)
             			->setFixed(8,HX_("element",bc,ae,54,06),null())
-            			->setFixed(9,HX_("title",98,15,3b,10),HX_("FlxProject",a7,cc,16,25))
+            			->setFixed(9,HX_("title",98,15,3b,10),HX_("Nitrotica",09,e6,1e,5e))
             			->setFixed(10,HX_("alwaysOnTop",67,4d,53,16),false)
             			->setFixed(11,HX_("borderless",45,46,71,17),false)
             			->setFixed(12,HX_("minimized",86,fb,9d,28),false)

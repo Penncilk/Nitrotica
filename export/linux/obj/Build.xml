@@ -8622,19 +8622,88 @@
    <depend name="include/ValueType.h"/>
   </file>
   <file name="src/TitleState.cpp" >
+   <depend name="include/MenuState.h"/>
    <depend name="include/TitleState.h"/>
    <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxCamera.h"/>
    <depend name="include/flixel/FlxG.h"/>
+   <depend name="include/flixel/FlxGame.h"/>
    <depend name="include/flixel/FlxObject.h"/>
    <depend name="include/flixel/FlxSprite.h"/>
    <depend name="include/flixel/FlxState.h"/>
    <depend name="include/flixel/group/FlxTypedGroup.h"/>
+   <depend name="include/flixel/input/FlxBaseKeyList.h"/>
+   <depend name="include/flixel/input/FlxKeyManager.h"/>
+   <depend name="include/flixel/input/IFlxInputManager.h"/>
+   <depend name="include/flixel/input/keyboard/FlxKeyList.h"/>
+   <depend name="include/flixel/input/keyboard/FlxKeyboard.h"/>
    <depend name="include/flixel/system/FlxSoundGroup.h"/>
    <depend name="include/flixel/system/frontEnds/SoundFrontEnd.h"/>
    <depend name="include/flixel/text/FlxText.h"/>
    <depend name="include/flixel/tweens/FlxTween.h"/>
    <depend name="include/flixel/tweens/misc/VarTween.h"/>
    <depend name="include/flixel/util/IFlxDestroyable.h"/>
+   <depend name="include/openfl/display/DisplayObject.h"/>
+   <depend name="include/openfl/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/display/InteractiveObject.h"/>
+   <depend name="include/openfl/display/Sprite.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+  </file>
+  <file name="src/Sys.cpp" >
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Sys.h"/>
+   <depend name="include/haxe/SysTools.h"/>
+  </file>
+  <file name="src/StringTools.cpp" >
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+  </file>
+  <file name="src/haxe/SysTools.cpp" >
+   <depend name="include/EReg.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/StringBuf.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/haxe/SysTools.h"/>
+  </file>
+  <file name="src/StringBuf.cpp" >
+   <depend name="include/StringBuf.h"/>
+  </file>
+  <file name="src/Std.cpp" >
+   <depend name="include/Std.h"/>
+  </file>
+  <file name="src/Reflect.cpp" >
+   <depend name="include/Reflect.h"/>
+   <depend name="include/haxe/Exception.h"/>
+  </file>
+  <file name="src/MenuState.cpp" >
+   <depend name="include/MenuState.h"/>
+   <depend name="include/TitleState.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
+   <depend name="include/flixel/FlxG.h"/>
+   <depend name="include/flixel/FlxGame.h"/>
+   <depend name="include/flixel/FlxObject.h"/>
+   <depend name="include/flixel/FlxSprite.h"/>
+   <depend name="include/flixel/FlxState.h"/>
+   <depend name="include/flixel/group/FlxTypedGroup.h"/>
+   <depend name="include/flixel/input/FlxBaseKeyList.h"/>
+   <depend name="include/flixel/input/FlxKeyManager.h"/>
+   <depend name="include/flixel/input/IFlxInputManager.h"/>
+   <depend name="include/flixel/input/keyboard/FlxKeyList.h"/>
+   <depend name="include/flixel/input/keyboard/FlxKeyboard.h"/>
+   <depend name="include/flixel/text/FlxText.h"/>
+   <depend name="include/flixel/tweens/FlxTween.h"/>
+   <depend name="include/flixel/tweens/misc/VarTween.h"/>
+   <depend name="include/flixel/util/IFlxDestroyable.h"/>
+   <depend name="include/openfl/display/DisplayObject.h"/>
+   <depend name="include/openfl/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/display/InteractiveObject.h"/>
+   <depend name="include/openfl/display/Sprite.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
   </file>
   <file name="src/flixel/FlxState.cpp" >
    <depend name="include/flixel/FlxBasic.h"/>
@@ -8680,33 +8749,6 @@
   </file>
   <file name="src/flixel/util/IFlxDestroyable.cpp" >
    <depend name="include/flixel/util/IFlxDestroyable.h"/>
-  </file>
-  <file name="src/Sys.cpp" >
-   <depend name="include/StringTools.h"/>
-   <depend name="include/Sys.h"/>
-   <depend name="include/haxe/SysTools.h"/>
-  </file>
-  <file name="src/StringTools.cpp" >
-   <depend name="include/Std.h"/>
-   <depend name="include/StringBuf.h"/>
-   <depend name="include/StringTools.h"/>
-  </file>
-  <file name="src/haxe/SysTools.cpp" >
-   <depend name="include/EReg.h"/>
-   <depend name="include/Std.h"/>
-   <depend name="include/StringBuf.h"/>
-   <depend name="include/StringTools.h"/>
-   <depend name="include/haxe/SysTools.h"/>
-  </file>
-  <file name="src/StringBuf.cpp" >
-   <depend name="include/StringBuf.h"/>
-  </file>
-  <file name="src/Std.cpp" >
-   <depend name="include/Std.h"/>
-  </file>
-  <file name="src/Reflect.cpp" >
-   <depend name="include/Reflect.h"/>
-   <depend name="include/haxe/Exception.h"/>
   </file>
   <file name="src/__ASSET__OPENFL__flixel_fonts_monsterrat_ttf.cpp" >
    <depend name="include/__ASSET__OPENFL__flixel_fonts_monsterrat_ttf.h"/>
@@ -9558,8 +9600,8 @@
    <depend name="include/flixel/math/FlxRect.h"/>
    <depend name="include/flixel/math/FlxPoint.h"/>
    <depend name="include/Xml.h"/>
-   <depend name="include/flixel/FlxBasic.h"/>
    <depend name="include/haxe/SysTools.h"/>
+   <depend name="include/flixel/FlxBasic.h"/>
    <depend name="include/openfl/text/Font.h"/>
    <depend name="include/__ASSET__flixel_images_logo_default_png.h"/>
    <depend name="include/__ASSET__flixel_images_ui_button_png.h"/>

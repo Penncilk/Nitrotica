@@ -15,11 +15,11 @@ class ApplicationMain
 	#if !macro
 	public static function main()
 	{
-		lime.system.System.__registerEntryPoint("FlxProject", create);
+		lime.system.System.__registerEntryPoint("Nitrotica", create);
 
 		#if (js && html5)
 		#if (munit || utest)
-		lime.system.System.embed("FlxProject", null, 1280, 720);
+		lime.system.System.embed("Nitrotica", null, 1280, 720);
 		#end
 		#else
 		create(null);
@@ -32,10 +32,10 @@ class ApplicationMain
 
 		ManifestResources.init(config);
 
-		app.meta["build"] = "5";
+		app.meta["build"] = "7";
 		app.meta["company"] = "HaxeFlixel";
-		app.meta["file"] = "FlxProject";
-		app.meta["name"] = "FlxProject";
+		app.meta["file"] = "Nitrotica";
+		app.meta["name"] = "Nitrotica";
 		app.meta["packageName"] = "com.example.myapp";
 		app.meta["version"] = "0.0.1";
 
@@ -57,7 +57,7 @@ class ApplicationMain
 			minimized: false,
 			parameters: {},
 			resizable: false,
-			title: "FlxProject",
+			title: "Nitrotica",
 			width: 1280,
 			x: null,
 			y: null,
