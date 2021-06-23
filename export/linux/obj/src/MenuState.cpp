@@ -52,6 +52,12 @@
 #ifndef INCLUDED_flixel_tweens_misc_VarTween
 #include <flixel/tweens/misc/VarTween.h>
 #endif
+#ifndef INCLUDED_flixel_util_FlxTimer
+#include <flixel/util/FlxTimer.h>
+#endif
+#ifndef INCLUDED_flixel_util_FlxTimerManager
+#include <flixel/util/FlxTimerManager.h>
+#endif
 #ifndef INCLUDED_flixel_util_IFlxDestroyable
 #include <flixel/util/IFlxDestroyable.h>
 #endif
@@ -77,15 +83,17 @@
 #include <openfl/events/IEventDispatcher.h>
 #endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_1f119275e66a7b90_10_new,"MenuState","new",0xe563b1c4,"MenuState.new","MenuState.hx",10,0xdfbcb22c)
-HX_LOCAL_STACK_FRAME(_hx_pos_1f119275e66a7b90_16_create,"MenuState","create",0xe57b7c18,"MenuState.create","MenuState.hx",16,0xdfbcb22c)
-HX_LOCAL_STACK_FRAME(_hx_pos_1f119275e66a7b90_26_update,"MenuState","update",0xf0719b25,"MenuState.update","MenuState.hx",26,0xdfbcb22c)
+HX_DEFINE_STACK_FRAME(_hx_pos_1f119275e66a7b90_11_new,"MenuState","new",0xe563b1c4,"MenuState.new","MenuState.hx",11,0xdfbcb22c)
+HX_LOCAL_STACK_FRAME(_hx_pos_1f119275e66a7b90_14_noteadd1,"MenuState","noteadd1",0x113477fe,"MenuState.noteadd1","MenuState.hx",14,0xdfbcb22c)
+HX_LOCAL_STACK_FRAME(_hx_pos_1f119275e66a7b90_18_noteadd2,"MenuState","noteadd2",0x113477ff,"MenuState.noteadd2","MenuState.hx",18,0xdfbcb22c)
+HX_LOCAL_STACK_FRAME(_hx_pos_1f119275e66a7b90_25_create,"MenuState","create",0xe57b7c18,"MenuState.create","MenuState.hx",25,0xdfbcb22c)
+HX_LOCAL_STACK_FRAME(_hx_pos_1f119275e66a7b90_35_update,"MenuState","update",0xf0719b25,"MenuState.update","MenuState.hx",35,0xdfbcb22c)
 
 void MenuState_obj::__construct( ::Dynamic MaxSize){
-            	HX_GC_STACKFRAME(&_hx_pos_1f119275e66a7b90_10_new)
-HXLINE(  14)		this->note2 =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,-100,70,5000,HX_("More Coming Soon",0f,9d,9e,02),50,null());
-HXLINE(  13)		this->note1 =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,-100,10,5000,HX_("Well, that's all I have,",43,36,6c,b7),50,null());
-HXLINE(  10)		super::__construct(MaxSize);
+            	HX_GC_STACKFRAME(&_hx_pos_1f119275e66a7b90_11_new)
+HXLINE(  23)		this->note2 =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,-1000,70,5000,HX_("More Coming Soon",0f,9d,9e,02),50,null());
+HXLINE(  22)		this->note1 =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,-1000,10,5000,HX_("Well, that's all I have,",43,36,6c,b7),50,null());
+HXLINE(  11)		super::__construct(MaxSize);
             	}
 
 Dynamic MenuState_obj::__CreateEmpty() { return new MenuState_obj; }
@@ -111,27 +119,43 @@ bool MenuState_obj::_hx_isInstanceOf(int inClassId) {
 	}
 }
 
-void MenuState_obj::create(){
-            	HX_STACKFRAME(&_hx_pos_1f119275e66a7b90_16_create)
-HXLINE(  18)		this->add(this->note1);
-HXLINE(  19)		::flixel::tweens::FlxTween_obj::tween(this->note1, ::Dynamic(::hx::Anon_obj::Create(2)
+void MenuState_obj::noteadd1( ::flixel::util::FlxTimer timer){
+            	HX_STACKFRAME(&_hx_pos_1f119275e66a7b90_14_noteadd1)
+HXLINE(  15)		this->add(this->note1);
+HXLINE(  16)		::flixel::tweens::FlxTween_obj::tween(this->note1, ::Dynamic(::hx::Anon_obj::Create(2)
             			->setFixed(0,HX_("x",78,00,00,00),20)
             			->setFixed(1,HX_("y",79,00,00,00),10)),((Float)0.5),null());
-HXLINE(  20)		this->add(this->note2);
-HXLINE(  21)		::flixel::tweens::FlxTween_obj::tween(this->note2, ::Dynamic(::hx::Anon_obj::Create(2)
+            	}
+
+
+HX_DEFINE_DYNAMIC_FUNC1(MenuState_obj,noteadd1,(void))
+
+void MenuState_obj::noteadd2( ::flixel::util::FlxTimer timer){
+            	HX_STACKFRAME(&_hx_pos_1f119275e66a7b90_18_noteadd2)
+HXLINE(  19)		this->add(this->note2);
+HXLINE(  20)		::flixel::tweens::FlxTween_obj::tween(this->note2, ::Dynamic(::hx::Anon_obj::Create(2)
             			->setFixed(0,HX_("x",78,00,00,00),20)
             			->setFixed(1,HX_("y",79,00,00,00),70)),1,null());
             	}
 
 
+HX_DEFINE_DYNAMIC_FUNC1(MenuState_obj,noteadd2,(void))
+
+void MenuState_obj::create(){
+            	HX_GC_STACKFRAME(&_hx_pos_1f119275e66a7b90_25_create)
+HXLINE(  27)		 ::flixel::util::FlxTimer_obj::__alloc( HX_CTX ,null())->start(1,this->noteadd1_dyn(),null());
+HXLINE(  28)		 ::flixel::util::FlxTimer_obj::__alloc( HX_CTX ,null())->start(2,this->noteadd2_dyn(),null());
+            	}
+
+
 void MenuState_obj::update(Float elapsed){
-            	HX_GC_STACKFRAME(&_hx_pos_1f119275e66a7b90_26_update)
-HXLINE(  28)		this->super::update(elapsed);
-HXLINE(  29)		 ::flixel::input::keyboard::FlxKeyList _this = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->pressed) );
-HXDLIN(  29)		if (_this->keyManager->checkStatus(9,_this->status)) {
-HXLINE(  30)			 ::flixel::FlxState nextState =  ::TitleState_obj::__alloc( HX_CTX ,null());
-HXDLIN(  30)			if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE(  30)				::flixel::FlxG_obj::game->_requestedState = nextState;
+            	HX_GC_STACKFRAME(&_hx_pos_1f119275e66a7b90_35_update)
+HXLINE(  37)		this->super::update(elapsed);
+HXLINE(  38)		 ::flixel::input::keyboard::FlxKeyList _this = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->pressed) );
+HXDLIN(  38)		if (_this->keyManager->checkStatus(9,_this->status)) {
+HXLINE(  39)			 ::flixel::FlxState nextState =  ::TitleState_obj::__alloc( HX_CTX ,null());
+HXDLIN(  39)			if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE(  39)				::flixel::FlxG_obj::game->_requestedState = nextState;
             			}
             		}
             	}
@@ -181,6 +205,10 @@ void MenuState_obj::__Visit(HX_VISIT_PARAMS)
 	case 6:
 		if (HX_FIELD_EQ(inName,"create") ) { return ::hx::Val( create_dyn() ); }
 		if (HX_FIELD_EQ(inName,"update") ) { return ::hx::Val( update_dyn() ); }
+		break;
+	case 8:
+		if (HX_FIELD_EQ(inName,"noteadd1") ) { return ::hx::Val( noteadd1_dyn() ); }
+		if (HX_FIELD_EQ(inName,"noteadd2") ) { return ::hx::Val( noteadd2_dyn() ); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -212,6 +240,8 @@ static ::hx::StaticInfo *MenuState_obj_sStaticStorageInfo = 0;
 #endif
 
 static ::String MenuState_obj_sMemberFields[] = {
+	HX_("noteadd1",e2,e3,c3,64),
+	HX_("noteadd2",e3,e3,c3,64),
 	HX_("note1",ff,db,ca,9f),
 	HX_("note2",00,dc,ca,9f),
 	HX_("create",fc,66,0f,7c),

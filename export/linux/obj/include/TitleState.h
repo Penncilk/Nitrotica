@@ -16,6 +16,7 @@ HX_DECLARE_CLASS1(flixel,FlxSprite)
 HX_DECLARE_CLASS1(flixel,FlxState)
 HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
 HX_DECLARE_CLASS2(flixel,text,FlxText)
+HX_DECLARE_CLASS2(flixel,util,FlxTimer)
 HX_DECLARE_CLASS2(flixel,util,IFlxDestroyable)
 
 
@@ -54,6 +55,13 @@ class HXCPP_CLASS_ATTRIBUTES TitleState_obj : public  ::flixel::FlxState_obj
 
 		 ::flixel::text::FlxText text;
 		 ::flixel::FlxSprite bg;
+		void enter( ::flixel::util::FlxTimer timer);
+		::Dynamic enter_dyn();
+
+		void burn( ::flixel::util::FlxTimer timer);
+		::Dynamic burn_dyn();
+
+		 ::flixel::FlxSprite openingscene;
 		void create();
 
 		void update(Float elapsed);

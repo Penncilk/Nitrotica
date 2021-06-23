@@ -1102,9 +1102,6 @@
 #ifndef INCLUDED_haxe_SysTools
 #include <haxe/SysTools.h>
 #endif
-#ifndef INCLUDED_flixel_FlxBasic
-#include <flixel/FlxBasic.h>
-#endif
 #ifndef INCLUDED_openfl_text_Font
 #include <openfl/text/Font.h>
 #endif
@@ -1125,6 +1122,9 @@
 #endif
 #ifndef INCLUDED___ASSET__flixel_sounds_flixel_ogg
 #include <__ASSET__flixel_sounds_flixel_ogg.h>
+#endif
+#ifndef INCLUDED_flixel_FlxBasic
+#include <flixel/FlxBasic.h>
 #endif
 #ifndef INCLUDED_openfl_display_DisplayObject
 #include <openfl/display/DisplayObject.h>
@@ -2836,18 +2836,6 @@
 #ifndef INCLUDED_Reflect
 #include <Reflect.h>
 #endif
-#ifndef INCLUDED_MenuState
-#include <MenuState.h>
-#endif
-#ifndef INCLUDED_flixel_FlxState
-#include <flixel/FlxState.h>
-#endif
-#ifndef INCLUDED_flixel_group_FlxTypedGroup
-#include <flixel/group/FlxTypedGroup.h>
-#endif
-#ifndef INCLUDED_flixel_util_IFlxDestroyable
-#include <flixel/util/IFlxDestroyable.h>
-#endif
 #ifndef INCLUDED___ASSET__OPENFL__flixel_fonts_monsterrat_ttf
 #include <__ASSET__OPENFL__flixel_fonts_monsterrat_ttf.h>
 #endif
@@ -2877,6 +2865,18 @@
 #endif
 #ifndef INCLUDED_Date
 #include <Date.h>
+#endif
+#ifndef INCLUDED_ComingSoonState
+#include <ComingSoonState.h>
+#endif
+#ifndef INCLUDED_flixel_FlxState
+#include <flixel/FlxState.h>
+#endif
+#ifndef INCLUDED_flixel_group_FlxTypedGroup
+#include <flixel/group/FlxTypedGroup.h>
+#endif
+#ifndef INCLUDED_flixel_util_IFlxDestroyable
+#include <flixel/util/IFlxDestroyable.h>
 #endif
 #ifndef INCLUDED_DocumentClass
 #include <DocumentClass.h>
@@ -3297,7 +3297,6 @@ __files__boot();
 ::flixel::math::FlxPoint_obj::__register();
 ::Xml_obj::__register();
 ::haxe::SysTools_obj::__register();
-::flixel::FlxBasic_obj::__register();
 ::openfl::text::Font_obj::__register();
 ::__ASSET__flixel_images_logo_default_png_obj::__register();
 ::__ASSET__flixel_images_ui_button_png_obj::__register();
@@ -3305,6 +3304,7 @@ __files__boot();
 ::__ASSET__flixel_fonts_nokiafc22_ttf_obj::__register();
 ::__ASSET__flixel_sounds_beep_ogg_obj::__register();
 ::__ASSET__flixel_sounds_flixel_ogg_obj::__register();
+::flixel::FlxBasic_obj::__register();
 ::openfl::display::DisplayObject_obj::__register();
 ::openfl::_Vector::Vector_Impl__obj::__register();
 ::ApplicationMain_obj::__register();
@@ -3875,10 +3875,6 @@ __files__boot();
 ::StringBuf_obj::__register();
 ::Std_obj::__register();
 ::Reflect_obj::__register();
-::MenuState_obj::__register();
-::flixel::FlxState_obj::__register();
-::flixel::group::FlxTypedGroup_obj::__register();
-::flixel::util::IFlxDestroyable_obj::__register();
 ::__ASSET__OPENFL__flixel_fonts_monsterrat_ttf_obj::__register();
 ::__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf_obj::__register();
 ::lime::graphics::Image_obj::__register();
@@ -3889,6 +3885,10 @@ __files__boot();
 ::IntIterator_obj::__register();
 ::EReg_obj::__register();
 ::Date_obj::__register();
+::ComingSoonState_obj::__register();
+::flixel::FlxState_obj::__register();
+::flixel::group::FlxTypedGroup_obj::__register();
+::flixel::util::IFlxDestroyable_obj::__register();
 ::DocumentClass_obj::__register();
 ::Main_obj::__register();
 ::openfl::display::Sprite_obj::__register();
@@ -3964,6 +3964,7 @@ __files__boot();
 ::ApplicationMain_obj::__boot();
 ::openfl::_Vector::Vector_Impl__obj::__boot();
 ::openfl::display::DisplayObject_obj::__boot();
+::flixel::FlxBasic_obj::__boot();
 ::__ASSET__flixel_sounds_flixel_ogg_obj::__boot();
 ::__ASSET__flixel_sounds_beep_ogg_obj::__boot();
 ::__ASSET__flixel_fonts_nokiafc22_ttf_obj::__boot();
@@ -3971,7 +3972,6 @@ __files__boot();
 ::__ASSET__flixel_images_ui_button_png_obj::__boot();
 ::__ASSET__flixel_images_logo_default_png_obj::__boot();
 ::openfl::text::Font_obj::__boot();
-::flixel::FlxBasic_obj::__boot();
 ::haxe::SysTools_obj::__boot();
 ::Xml_obj::__boot();
 ::flixel::math::FlxPoint_obj::__boot();

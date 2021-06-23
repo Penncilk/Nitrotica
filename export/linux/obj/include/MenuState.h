@@ -16,6 +16,7 @@ HX_DECLARE_CLASS1(flixel,FlxSprite)
 HX_DECLARE_CLASS1(flixel,FlxState)
 HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
 HX_DECLARE_CLASS2(flixel,text,FlxText)
+HX_DECLARE_CLASS2(flixel,util,FlxTimer)
 HX_DECLARE_CLASS2(flixel,util,IFlxDestroyable)
 
 
@@ -51,6 +52,12 @@ class HXCPP_CLASS_ATTRIBUTES MenuState_obj : public  ::flixel::FlxState_obj
 		void __Visit(HX_VISIT_PARAMS);
 		bool _hx_isInstanceOf(int inClassId);
 		::String __ToString() const { return HX_("MenuState",d2,bf,b6,c0); }
+
+		void noteadd1( ::flixel::util::FlxTimer timer);
+		::Dynamic noteadd1_dyn();
+
+		void noteadd2( ::flixel::util::FlxTimer timer);
+		::Dynamic noteadd2_dyn();
 
 		 ::flixel::text::FlxText note1;
 		 ::flixel::text::FlxText note2;
