@@ -19,7 +19,7 @@ class TitleState extends FlxState
 
 	function enter(timer:FlxTimer):Void
 	{
-		FlxG.switchState(new ComingSoonState());
+		FlxG.switchState(new MenuState());
 	}
 
 	function burn(timer:FlxTimer):Void
@@ -32,6 +32,7 @@ class TitleState extends FlxState
 
 	override public function create()
 	{
+		trace("It be the title");
 		bg.antialiasing = true;
 		openingscene.loadGraphic("assets/images/burn.png", true, 1280, 720);
 		FlxG.sound.playMusic("assets/music/menu.ogg", 1, true);
