@@ -19,7 +19,7 @@ class ComingSoonState extends FlxState
         add(note2);
         FlxTween.tween(note2, {x: 20, y: 70}, 1);
 	}
-    var note1 = new FlxText(-1000, 10, 5000, "Well, that's all I have,", 50);
+    var note1 = new FlxText(-1000, 10, 5000, "I haven't built this part yet", 50);
     var note2 = new FlxText(-1000, 70, 5000, "More Coming Soon", 50);
     override public function create():Void
     {
@@ -36,7 +36,7 @@ class ComingSoonState extends FlxState
     {
         //call super to update the core state class
         super.update(elapsed);
-        if (FlxG.keys.pressed.ESCAPE) {
+        if (FlxG.keys.pressed.ESCAPE || FlxG.keys.pressed.ENTER) {
 			FlxG.switchState(new TitleState());
 		}
     }
