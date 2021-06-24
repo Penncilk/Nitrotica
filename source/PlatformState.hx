@@ -6,6 +6,7 @@ import flixel.FlxObject;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.util.FlxSpriteUtil;
+import flixel.util.FlxTimer;
 
 class PlatformState extends FlxState
 {
@@ -14,23 +15,13 @@ class PlatformState extends FlxState
     var jumpTimer:Float = 0;
     var jumping:Bool = false;
     var goingLeft = false;
-    function movehorizontal()
-    {
-        if (FlxG.keys.pressed.RIGHT && !FlxG.keys.pressed.LEFT)
-            {
-                    player.acceleration.x = 500;
-            }
-        
-            if (FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT)
-            {
-                    player.acceleration.x = -500;
-            }
-            if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT) {
-            player.velocity.x = 0;
-            player.acceleration.x = 0;
-            }
-    }
-    override public function create():Void
+    function stop(timer:FlxTimer):Void
+        {
+        player.velocity.x = 0;
+        player.acceleration.x = 0;
+        }
+    
+        override public function create():Void
     {
         ground.makeGraphic(1280, 20, FlxColor.WHITE, true);
         ground.y = 700;
@@ -47,8 +38,16 @@ class PlatformState extends FlxState
     {
         super.update(elapsed);
          FlxG.collide(ground, player);
-         movehorizontal();
-
+         if (FlxG.keys.pressed.RIGHT && !FlxG.keys.pressed.LEFT)
+            {
+                    player.acceleration.x = 500;
+            }
+            if (FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT)
+            {
+                    player.acceleration.x = -500;
+            }
+            if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT) {
+            new FlxTimer().start(0.08, stop);
+            }
+         }
         }
-        
-    }
