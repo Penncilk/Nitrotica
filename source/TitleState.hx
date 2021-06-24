@@ -13,6 +13,7 @@ class TitleState extends FlxState
 
 	var text = new FlxText(1200, 10, 1000, "Nitrotica", 100);
 	var bg = new FlxSprite();
+	var gameStarted = false;
 
 	function enter(timer:FlxTimer):Void
 	{
@@ -53,7 +54,7 @@ class TitleState extends FlxState
 	{
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (FlxG.keys.justPressed.ENTER && gameStarted == false)
 		{
 			FlxG.camera.flash(FlxColor.RED, 1);
 			FlxTween.tween(text, {x: -1000, y: 10}, 0.5);
@@ -61,6 +62,7 @@ class TitleState extends FlxState
 			FlxG.sound.play("assets/music/fire.ogg");
 			new FlxTimer().start(2.5, burn);
 			new FlxTimer().start(4, enter);
+			gameStarted = true;
 		}
 	}
 }
