@@ -59,14 +59,25 @@ class MenuState extends FlxState
 			bg.loadGraphic("assets/images/dead.png");
 			new FlxTimer().start(1, accessarea);
 		}
+		
 		if (FlxG.keys.justPressed.RIGHT)
 		{
 			overcurrent++;
-			if (overcurrent > 1)
+			if (overcurrent < 1)
+			{
+				overcurrent = 1;
+			}
+		}
+
+		if (FlxG.keys.justPressed.LEFT)
+		{
+			overcurrent--;
+			if (overcurrent > 0)
 			{
 				overcurrent = 0;
 			}
 		}
+		
 		switch (overcurrent)
 		{
 			case 0:
