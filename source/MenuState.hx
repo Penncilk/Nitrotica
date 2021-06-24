@@ -62,20 +62,24 @@ class MenuState extends FlxState
 		
 		if (FlxG.keys.justPressed.RIGHT)
 		{
+			FlxG.sound.play("assets/music/tink.ogg");
 			overcurrent++;
-			if (overcurrent < 1)
+			if (overcurrent > 1)
 			{
-				overcurrent = 1;
+
+				overcurrent = 0;
 			}
 		}
 
 		if (FlxG.keys.justPressed.LEFT)
 		{
 			overcurrent--;
-			if (overcurrent > 0)
-			{
-				overcurrent = 0;
-			}
+			FlxG.sound.play("assets/music/tink.ogg");
+			if (overcurrent < 0)
+				{
+	
+					overcurrent = 1;
+				}
 		}
 		
 		switch (overcurrent)
