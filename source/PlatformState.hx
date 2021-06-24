@@ -47,7 +47,7 @@ class PlatformState extends FlxState
                     player.acceleration.x = -500;
             }
             if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT) {
-            new FlxTimer().start(0.08, stop);
+            new FlxTimer().start(0.07, stop);
             }
          }
         }
