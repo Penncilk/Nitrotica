@@ -12,6 +12,7 @@ class PlatformState extends FlxState
 {
     var ground = new FlxSprite();
     var player = new FlxSprite();
+    var viewabove = new FlxSprite();
     var jumpTimer:Float = 0;
     var jumping:Bool = false;
     var goingLeft = false;
@@ -37,7 +38,10 @@ class PlatformState extends FlxState
     override public function update(elapsed:Float):Void
     {
         super.update(elapsed);
+        viewabove.y = player.y - 200;
+        viewabove.x = player.x;
          FlxG.collide(ground, player);
+         FlxG.camera.follow(viewabove);
          if (FlxG.keys.pressed.RIGHT && !FlxG.keys.pressed.LEFT)
             {
                     player.acceleration.x = 500;
