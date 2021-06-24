@@ -19,7 +19,7 @@ class MenuState extends FlxState
 		switch (overcurrent)
 		{
 			case 0:
-                FlxG.switchState(new TitleState());
+                FlxG.switchState(new PlatformState());
 			case 1:
 
                 FlxG.switchState(new ComingSoonState());
