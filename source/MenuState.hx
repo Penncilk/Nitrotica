@@ -13,16 +13,18 @@ class MenuState extends FlxState
 	var options = new FlxSprite();
 	var choice = ["ready", "options"];
 	var overcurrent:Int = 0;
-    
-    function accessarea(timer:FlxTimer):Void {
-    switch (overcurrent)
-    {
-        case 0:
-            FlxG.switchState(new ComingSoonState());
-        case 1:
-            FlxG.switchState(new TitleState());
-    }
-}
+
+	function accessarea(timer:FlxTimer):Void
+	{
+		switch (overcurrent)
+		{
+			case 0:
+				FlxG.switchState(new ComingSoonState());
+			case 1:
+				FlxG.switchState(new TitleState());
+		}
+	}
+
 	override public function create():Void
 	{
 		trace("Trollge was here!");
@@ -52,8 +54,7 @@ class MenuState extends FlxState
 			trace("OH CRAP HE DEAD!!!");
 			FlxG.camera.flash(FlxColor.RED, 1);
 			bg.loadGraphic("assets/images/dead.png");
-            new FlxTimer().start(1, accessarea);
-
+			new FlxTimer().start(1, accessarea);
 		}
 		if (FlxG.keys.justPressed.RIGHT)
 		{

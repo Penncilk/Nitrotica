@@ -1,15 +1,12 @@
 package;
 
-import flixel.util.FlxTimer;
 import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.tweens.FlxTween;
 import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.util.FlxColor;
-import haxe.Timer;
 import flixel.util.FlxTimer;
-import flixel.input.touch.FlxTouch;
 
 class TitleState extends FlxState
 {
