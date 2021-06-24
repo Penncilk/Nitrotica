@@ -36,7 +36,7 @@ class ComingSoonState extends FlxState
     {
         //call super to update the core state class
         super.update(elapsed);
-        if (FlxG.keys.pressed.TAB) {
+        if (FlxG.keys.pressed.ESCAPE) {
 			FlxG.switchState(new TitleState());
 		}
     }
