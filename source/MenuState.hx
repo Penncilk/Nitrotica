@@ -13,7 +13,6 @@ class MenuState extends FlxState
 	var options = new FlxSprite();
 	var choice = ["ready", "options"];
 	var overcurrent:Int = 0;
-	var gameStarted = false;
 
 	function accessarea(timer:FlxTimer):Void
 	{
@@ -53,13 +52,12 @@ class MenuState extends FlxState
 		}
 
 		
-		if (FlxG.keys.justPressed.ENTER && gameStarted == false)
+		if (FlxG.keys.justPressed.ENTER)
 		{
 			trace("OH CRAP HE DEAD!!!");
 			FlxG.camera.flash(FlxColor.RED, 1);
 			bg.loadGraphic("assets/images/dead.png");
 			new FlxTimer().start(1, accessarea);
-			gameStarted = true;
 		}
 		if (FlxG.keys.justPressed.RIGHT)
 		{
