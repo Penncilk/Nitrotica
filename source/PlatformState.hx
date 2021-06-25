@@ -56,7 +56,7 @@ class PlatformState extends FlxState
             }
             if (FlxG.keys.pressed.UP)
                 {
-                        player.acceleration.y = -500;
+                        player.velocity.y = -500;
                 }
             if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT && player.isTouching(FlxObject.DOWN) || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT && player.isTouching(FlxObject.DOWN)) {
             new FlxTimer().start(0.07, stop);
