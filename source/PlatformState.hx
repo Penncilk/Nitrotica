@@ -16,6 +16,10 @@ class PlatformState extends FlxState
     var jumpTimer:Float = 0;
     var jumping:Bool = false;
     var goingLeft = false;
+    //How quickly they start to fall
+    var gravity = 0;
+    //How quickly they move before they fall
+    var yspeed = 0.0;
     function stop(timer:FlxTimer):Void
         {
         player.velocity.x = 0;
@@ -50,8 +54,21 @@ class PlatformState extends FlxState
             {
                     player.acceleration.x = -500;
             }
-            if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT) {
+            if (FlxG.keys.pressed.UP)
+                {
+                        player.acceleration.y = -500;
+                }
+            if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT && player.isTouching(FlxObject.DOWN) || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT && player.isTouching(FlxObject.DOWN)) {
             new FlxTimer().start(0.07, stop);
             }
+            if (!player.isTouching(FlxObject.DOWN)){
+                player.acceleration.y += yspeed;
+                yspeed = (player.y + gravity);
+              } else {
+                if (!FlxG.keys.pressed.UP) {
+                yspeed = 5;
+                player.acceleration.y += yspeed;
+                }  
+              }
          }
         }

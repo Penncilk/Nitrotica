@@ -5,6 +5,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.tweens.FlxTween;
 
 class MenuState extends FlxState
 {
@@ -28,6 +29,8 @@ class MenuState extends FlxState
 
 	override public function create():Void
 	{
+		FlxTween.tween(ready, {x: 70, y: 300}, 0.5);
+		FlxTween.tween(options, {x: 700, y: 300}, 0.5);
 		trace("Trollge was here!");
 		FlxG.camera.flash(FlxColor.BLACK, 1);
 		bg.loadGraphic("assets/images/alive.png");
@@ -36,9 +39,9 @@ class MenuState extends FlxState
 		add(bg);
 		add(ready);
 		ready.x = 70;
-		ready.y = 300;
+		ready.y = 750;
 		add(options);
-		options.x = 700;
+		options.x = 1330;
 		options.y = 300;
 		super.create();
 	}
