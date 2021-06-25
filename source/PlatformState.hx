@@ -28,7 +28,7 @@ class PlatformState extends FlxState
 		ground.makeGraphic(1280, 20, FlxColor.WHITE, true);
 		ground.y = 700;
 		add(ground);
-		player.makeGraphic(50, 50, FlxColor.YELLOW, true);
+		player.loadGraphic("assets/images/sprites/grunt.png");
 		player.y = 500;
 		ground.immovable = true;
 		add(player);
@@ -59,7 +59,7 @@ class PlatformState extends FlxState
 		}
 
 		// Lets the player jump after landing
-		if (jumping && !FlxG.keys.pressed.UP)
+		if (jumping && !FlxG.keys.justPressed.UP)
 		{
 			jumping = false;
 		}
@@ -76,6 +76,7 @@ class PlatformState extends FlxState
 		{
 			jumping = true;
 			jumpTimer += elapsed;
+            trace("jumpTimer:"+jumpTimer);
 		}
 		else
 		{

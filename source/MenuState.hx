@@ -33,9 +33,9 @@ class MenuState extends FlxState
 		FlxTween.tween(options, {x: 700, y: 300}, 0.5);
 		trace("Trollge was here!");
 		FlxG.camera.flash(FlxColor.BLACK, 1);
-		bg.loadGraphic("assets/images/alive.png");
-		ready.loadGraphic("assets/images/ready.png");
-		options.loadGraphic("assets/images/options.png");
+		bg.loadGraphic("assets/images/backgrounds/alive.png");
+		ready.loadGraphic("assets/images/sprites/ready.png");
+		options.loadGraphic("assets/images/sprites/options.png");
 		add(bg);
 		add(ready);
 		ready.x = 70;
@@ -54,18 +54,17 @@ class MenuState extends FlxState
 			FlxG.switchState(new TitleState());
 		}
 
-		
 		if (FlxG.keys.justPressed.ENTER)
 		{
 			trace("OH CRAP HE DEAD!!!");
 			FlxG.camera.flash(FlxColor.RED, 1);
-			bg.loadGraphic("assets/images/dead.png");
+			bg.loadGraphic("assets/images/backgrounds/dead.png");
 			new FlxTimer().start(1, accessarea);
 		}
 		
 		if (FlxG.keys.justPressed.RIGHT)
 		{
-			FlxG.sound.play("assets/music/tink.ogg");
+			FlxG.sound.play("assets/sounds/tink.ogg");
 			overcurrent++;
 			if (overcurrent > 1)
 			{
@@ -88,11 +87,11 @@ class MenuState extends FlxState
 		switch (overcurrent)
 		{
 			case 0:
-				ready.loadGraphic("assets/images/overready.png");
-				options.loadGraphic("assets/images/options.png");
+				ready.loadGraphic("assets/images/sprites/overready.png");
+				options.loadGraphic("assets/images/sprites/options.png");
 			case 1:
-				ready.loadGraphic("assets/images/ready.png");
-				options.loadGraphic("assets/images/overoptions.png");
+				ready.loadGraphic("assets/images/sprites/ready.png");
+				options.loadGraphic("assets/images/sprites/overoptions.png");
 		}
 	}
 }

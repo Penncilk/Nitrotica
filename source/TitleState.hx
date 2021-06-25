@@ -32,7 +32,7 @@ class TitleState extends FlxState
 	{
 		trace("It be the title");
 		bg.antialiasing = true;
-		openingscene.loadGraphic("assets/images/burn.png", true, 1280, 720);
+		openingscene.loadGraphic("assets/images/backgrounds/burn.png", true, 1280, 720);
 		FlxG.sound.playMusic("assets/music/menu.ogg", 1, true);
 		openingscene.animation.add("fire", [
 			0, 1], 12, true);
@@ -41,9 +41,6 @@ class TitleState extends FlxState
 		], 24, false);
 		add(openingscene);
 		add(text);
-		
-		FlxG.sound.playMusic("assets/music/menu.ogg", 1, true);
-		bg.loadGraphic("assets/images/titleBG.png");
 		openingscene.animation.play("fire");
 		FlxG.camera.flash(FlxColor.BLACK, 1);
 		FlxTween.tween(text, {x: 10, y: 10}, 0.5);
@@ -59,10 +56,13 @@ class TitleState extends FlxState
 			FlxG.camera.flash(FlxColor.RED, 1);
 			FlxTween.tween(text, {x: -1000, y: 10}, 0.5);
 			FlxG.sound.playMusic("null");
-			FlxG.sound.play("assets/music/fire.ogg");
+			FlxG.sound.play("assets/sounds/fire.ogg");
 			new FlxTimer().start(2.5, burn);
 			new FlxTimer().start(4, enter);
 			gameStarted = true;
 		}
+		if (FlxG.keys.justPressed.R) {
+            FlxG.switchState(new PlatformState());
+        }
 	}
 }
