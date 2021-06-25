@@ -23,7 +23,7 @@ class Player extends FlxSprite
 			player.acceleration.x = -500;
 		}
 			
-        if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT)
+        	if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT)
 		{
 			player.velocity.x = 0;
 			player.acceleration.x = 0;
