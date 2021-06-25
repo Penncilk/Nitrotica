@@ -22,13 +22,14 @@ class PlatformState extends FlxState
 		player.velocity.x = 0;
 		player.acceleration.x = 0;
 	}
-
 	override public function create():Void
 	{
-		ground.makeGraphic(1280, 20, FlxColor.WHITE, true);
+		ground.makeGraphic(1500, 20, FlxColor.WHITE, true);
 		ground.y = 700;
 		add(ground);
-		player.loadGraphic("assets/images/sprites/grunt.png");
+		player.loadGraphic("assets/images/sprites/grunt.png", true, 51, 63);
+        player.animation.add("RIGHT", [0], true);
+        player.animation.add("LEFT", [1], true);
 		player.y = 500;
 		ground.immovable = true;
 		add(player);
@@ -39,18 +40,20 @@ class PlatformState extends FlxState
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
-		viewabove.y = player.y;
-		viewabove.x = player.x;
+        viewabove.y = player.y - 150;
+        viewabove.x = player.x;
 		FlxG.collide(ground, player);
-		FlxG.camera.follow(viewabove);
+		FlxG.camera.follow(viewabove, PLATFORMER, 0.25);
 		if (FlxG.keys.pressed.RIGHT && !FlxG.keys.pressed.LEFT)
 		{
 			player.acceleration.x = 500;
+            player.animation.play("RIGHT");
 		}
 
 		if (FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT)
 		{
 			player.acceleration.x = -500;
+            player.animation.play("LEFT");
 		}
 
 		if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT && !jumping || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT && !jumping)
@@ -78,7 +81,8 @@ class PlatformState extends FlxState
 			jumpTimer += elapsed;
             trace("jumpTimer:"+jumpTimer);
 		}
-		else
+
+		if (jumpTimer >= 0 && !jumping)
 		{
 			jumpTimer = -1;
 		}
