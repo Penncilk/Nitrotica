@@ -53,8 +53,7 @@ class PlatformState extends FlxState
 			player.acceleration.x = -500;
 		}
 
-		if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT && player.isTouching(FlxObject.DOWN) || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT
-			&& player.isTouching(FlxObject.DOWN))
+		if (!FlxG.keys.pressed.LEFT && !FlxG.keys.pressed.RIGHT && !jumping || FlxG.keys.pressed.LEFT && FlxG.keys.pressed.RIGHT && !jumping)
 		{
 			new FlxTimer().start(0.07, stop);
 		}
@@ -93,5 +92,8 @@ class PlatformState extends FlxState
 		{
 			player.acceleration.y += (jumpTimer * 100);
 		}
+        if (FlxG.keys.justPressed.R) {
+            FlxG.switchState(new PlatformState());
+        }
 	}
 }
